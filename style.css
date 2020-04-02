@@ -26,6 +26,12 @@
 .library, .contribute{
   margin-right: 10px;
   border-right: 1px solid #ababab;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.access, .aboutus{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .mainmenu li:hover{
   background-color: #d2d2d4 !important;
