@@ -14,6 +14,7 @@
 .facebook{
   border: 1px solid #0085ff;
   border-radius: 5px;
+  margin-right: 10px;
 }
 .facebook a{
   color: #0085ff !important;
