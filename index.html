@@ -54,15 +54,42 @@
             <a class="nav-link" href="https://github.com/Kroyded/Kroyded.github.io">Github</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form id="form" class="form-inline my-2 my-lg-0" method="get" action="/search">
+          <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
   </div>
 
-
+  <script>
+    $(document).ready(()=>{
+     $('#form').submit((e)=>{
+       e.preventDefault();
+       let formArray=$('#form').serializeArray();
+       let formObj={};
+       for(let i=0;i<formArray;i++)
+       {
+         formObj[formArray["name"]]=formArray["value"];
+       }
+       $.ajax({
+         url:'/search',
+         type:'get',
+         contentType:'application/json',
+         data:JSON.stringify(formObj),
+         success:(res)=>{
+           console.log(res);
+           alert("Search query submitted successfully");
+         },
+         error:(err)=>{
+           console.log('Error: ');
+           console.log(err);
+         }
+       
+       });
+     });
+    });
+   </script>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
