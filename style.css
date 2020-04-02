@@ -18,6 +18,10 @@
 .facebook a{
   color: #0085ff !important;
 }
+.github{
+  border: 1px solid #0085ff;
+  border-radius: 5px;
+}
 .contribute, .contact, .aboutus, .library, .access{
   border-top: 1px solid #ababab;
   border-bottom: 1px solid #ababab;
